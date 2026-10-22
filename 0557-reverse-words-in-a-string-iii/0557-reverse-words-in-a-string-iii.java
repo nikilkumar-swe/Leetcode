@@ -1,8 +1,8 @@
 class Solution {
     public static String reverse(String str) {
-        char arr[]=str.toCharArray();
-        int low=0;
-        int high=arr.length-1;
+        char arr[] = str.toCharArray();
+        int low = 0;
+        int high = arr.length - 1;
 
         while (low < high) {
             char temp = arr[low];
@@ -11,19 +11,23 @@ class Solution {
             low++;
             high--;
         }
-    
+
         return new String(arr);
     }
 
     public String reverseWords(String s) {
         String words[] = s.trim().split("\\s+");
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < words.length; i++) {
-            words[i]=reverse(words[i]);
-            sb.append(words[i]+" ");
+            words[i] = reverse(words[i]);
+            sb.append(words[i]);
+
+            if (i < words.length - 1) {
+                sb.append(" ");
+            }
         }
 
-        return sb.substring(0,sb.length()-1).toString();
+        return sb.toString();
     }
 }
